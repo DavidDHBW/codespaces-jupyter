@@ -1,30 +1,34 @@
 def NutzerEingabe():
+    global gameOver, output, won, versuche
+    rightGuess = False
     inputChar = input()
-    if inputChar == solution:
-        gameOver == True
+    for i in range(0, len(solution)):
+        if inputChar[0] == solution[i]:
+            output[i] = inputChar[0]
+            rightGuess = True
+    if inputChar == solution or output == solution:
+        gameOver = True
         won = True
-    else:
-        for i in range(0, len(solution)):
-            if inputChar[0] == solution[i]:
-                print("Correct '" + inputChar[0] + "' is in the word")
-        print(inputChar[0])
+        return
+    if not rightGuess:
+        versuche += 1
 
         
 
 #var
+versuche = 0
+solution = "test"
 gameOver = False
-solution = "test" #hier kann später eine Liste mit versch. Wörtern verwendet werden um zufälliges wort auszuwählen
-output = ""
-for i in range(0, len(solution)):
-    output = output + "*"
-print(output)
 
-while gameOver == False:
+output = ["*"] * len(solution)
+
+while not gameOver and versuche <= 6:
     print("Rate einen Buchstaben...")
     NutzerEingabe()
-
-
-       
-
-
-
+    print("Aktueller Fortschritt:", "".join(output))
+#gameover
+if won == True:
+    print("Du hast gewonnen und " + versuche + " Versuche gebraucht")
+else:
+    print("Du hast zu viele Versuche gebraucht!")
+    print("Das gesuchte Wort war: "+ solution)
