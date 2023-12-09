@@ -6,29 +6,30 @@ def NutzerEingabe():
         if inputChar[0] == solution[i]:
             output[i] = inputChar[0]
             rightGuess = True
-    if inputChar == solution or output == solution:
+    if inputChar == solution or "".join(output) == solution:
         gameOver = True
         won = True
         return
     if not rightGuess:
+        print("nicht richtig. Du hast noch " + str(6 - versuche) + "überig")
         versuche += 1
 
         
 
 #var
 versuche = 0
-solution = "test"
+solution = "lukas"
 gameOver = False
 
 output = ["*"] * len(solution)
-
+print("".join(output))
 while not gameOver and versuche <= 6:
     print("Rate einen Buchstaben...")
     NutzerEingabe()
     print("Aktueller Fortschritt:", "".join(output))
 #gameover
 if won == True:
-    print("Du hast gewonnen und " + versuche + " Versuche gebraucht")
+    print("Du hast gewonnen und " + str(versuche) + " Fehlversuche gebraucht")
 else:
     print("Du hast zu viele Versuche gebraucht!")
     print("Das gesuchte Wort war: "+ solution)
