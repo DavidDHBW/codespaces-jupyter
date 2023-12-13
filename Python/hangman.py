@@ -1,3 +1,4 @@
+
 def NutzerEingabe():
     global gameOver, output, won, versuche
     rightGuess = False
@@ -11,8 +12,9 @@ def NutzerEingabe():
         won = True
         return
     if not rightGuess:
-        print("nicht richtig. Du hast noch " + str(6 - versuche) + "überig")
+        print("nicht richtig. Du hast noch " + str(5 - versuche) + " Versuche überig")
         versuche += 1
+    print(hangmanpics[versuche])    
 
         
 
@@ -20,10 +22,60 @@ def NutzerEingabe():
 versuche = 0
 solution = "lukas"
 gameOver = False
+hangmanpics = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
 
 output = ["*"] * len(solution)
 print("".join(output))
-while not gameOver and versuche <= 6:
+while not gameOver and versuche <= 5:
     print("Rate einen Buchstaben...")
     NutzerEingabe()
     print("Aktueller Fortschritt:", "".join(output))
