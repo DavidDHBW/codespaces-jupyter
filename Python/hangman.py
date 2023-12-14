@@ -20,7 +20,7 @@ def NutzerEingabe():
 
 #var
 versuche = 0
-solution = "lukas"
+solution = "test"
 gameOver = False
 hangmanpics = ['''
   +---+
