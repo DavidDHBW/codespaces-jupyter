@@ -22,6 +22,7 @@ def NutzerEingabe():
 versuche = 0
 solution = "test"
 gameOver = False
+isPlaying = True
 hangmanpics = ['''
   +---+
   |   |
@@ -72,16 +73,21 @@ hangmanpics = ['''
  / \  |
       |
 =========''']
+while isPlaying:
+    output = ["*"] * len(solution)
+    print("".join(output))
+    while not gameOver and versuche <= 5:
+        print("Rate einen Buchstaben...")
+        NutzerEingabe()
+        print("Aktueller Fortschritt:", "".join(output))
+    #gameover
+    if won == True:
+        print("Du hast gewonnen und " + str(versuche) + " Fehlversuche gebraucht")
+    else:
+        print("Du hast zu viele Versuche gebraucht!")
+        print("Das gesuchte Wort war: "+ solution)
+    print("Willst du nochmal spielen? (y/n)")
+    if input() == 'n':
+        isPlaying = False
 
-output = ["*"] * len(solution)
-print("".join(output))
-while not gameOver and versuche <= 5:
-    print("Rate einen Buchstaben...")
-    NutzerEingabe()
-    print("Aktueller Fortschritt:", "".join(output))
-#gameover
-if won == True:
-    print("Du hast gewonnen und " + str(versuche) + " Fehlversuche gebraucht")
-else:
-    print("Du hast zu viele Versuche gebraucht!")
-    print("Das gesuchte Wort war: "+ solution)
+
