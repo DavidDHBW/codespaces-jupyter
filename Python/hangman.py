@@ -3,6 +3,12 @@ def NutzerEingabe():
     global gameOver, output, won, versuche
     rightGuess = False
     inputChar = input()
+    if len(inputChar) == 0 or len(inputChar) > 1:
+        print("nicht richtig. Du hast noch " + str(5 - versuche) + " Versuche überig")
+        versuche += 1
+        print(hangmanpics[versuche]) 
+        return
+
     for i in range(0, len(solution)):
         if inputChar[0] == solution[i]:
             output[i] = inputChar[0]
@@ -16,64 +22,66 @@ def NutzerEingabe():
         versuche += 1
     print(hangmanpics[versuche])    
 
-        
-
-#var
-versuche = 0
-solution = "test"
-gameOver = False
-isPlaying = True
-hangmanpics = ['''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========''']
+   
+isPlaying = True       
 while isPlaying:
+    #var
+    versuche = 0
+    solution = "test"
+    gameOver = False
+    won = False
+
+    hangmanpics = ['''
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+   /|   |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+        |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+   /    |
+        |
+    =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+   / \  |
+        |
+    =========''']
+
     output = ["*"] * len(solution)
     print("".join(output))
     while not gameOver and versuche <= 5:
