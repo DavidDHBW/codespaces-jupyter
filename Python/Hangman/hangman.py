@@ -1,3 +1,11 @@
+class Start:
+    _instance  = None
+    def __start__(cls):
+        if cls._instance is None:
+            isPlaying = True
+            cls._instance = super(Start, cls).__new__(cls)
+            return cls._instance
+        
 
 def NutzerEingabe():
     global gameOver, output, won, versuche
@@ -97,5 +105,6 @@ while isPlaying:
     print("Willst du nochmal spielen? (y/n)")
     if input() == 'n':
         isPlaying = False
+        break
 
 
