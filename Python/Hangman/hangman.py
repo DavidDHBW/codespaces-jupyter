@@ -1,3 +1,4 @@
+import random as rn
 class Start:
     _instance  = None
     def __start__(cls):
@@ -30,12 +31,20 @@ def NutzerEingabe():
         versuche += 1
     print(hangmanpics[versuche])    
 
+def SolutionPick():
+    global solution
+    solutionList = ["test","informatik","mosbach","tastatur"]
+    solutionIndex = rn.randint(0, len(solutionList) -1)
+    solution = solutionList[solutionIndex]
+
+
    
 isPlaying = True       
 while isPlaying:
     #var
+    SolutionPick()
     versuche = 0
-    solution = "test"
+    
     gameOver = False
     won = False
 
