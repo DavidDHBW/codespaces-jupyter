@@ -1,3 +1,5 @@
+import re
+
 list = [1,2,3,3,4,5,6]
 print(list)
 max(list)
@@ -6,6 +8,13 @@ min(list)
 dictionary = {"brand":"mercedes","color":["red","black","yellow"]}
 print(dictionary)
 print(dictionary["color"][0])
+
+
+def find_all(my_key, my_value):
+    for i in transaktionen:
+        if transaktionen[i][my_key] == my_value:
+            transaktionen_yesterday.add(transaktionen[i])
+    print(transaktionen_yesterday)
 
 t1 = {"amount":100,"date":"yesterday","type":"purchase"}
 t2 = {"amount":30,"date":"today","type":"sale"}
@@ -22,6 +31,13 @@ for i in range (0,len(transaktionen)):
     if transaktionen[i]["type"] == "sale":
         cntr = transaktionen[i]["amount"] +cntr
     else:
-        cntr = cntr - transaktionen[i]["amount"] 
+        cntr = cntr - transaktionen[i]["amount"]
 print("total amount: " + str(cntr))
+find_all("date", "yesterday")
+transaktionen_yesterday = []
+
+
+
+
+            
 
