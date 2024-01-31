@@ -4,18 +4,20 @@ import chess
 
 
 
+
+
 WIDTH = HEIGHT = 512
 DIMENSION = 8 #chess board is 8x8
 SQUARE_SIZE = WIDTH/DIMENSION
 MAX_FPS = 15 #if I want to add animations later
 IMAGES ={}
 
+
 def loadImages():
+    pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
     
-    
-    pieces = ['wp','wR','wN','wB','wQ','wK','bp','bR','bN','bB','bQ','bK']
     for piece in pieces:
-        IMAGES[piece] = p.transform(p.image.load("images/"+piece+".png"),[SQUARE_SIZE,SQUARE_SIZE])  
+        IMAGES[piece] = p.transform(p.image.load("images/"+piece+".png"), [SQUARE_SIZE, SQUARE_SIZE])
 #get the image for the white pawn by 'IMAGES['wp']'    
 #to adjust the image size to the square size i used p.transform()
 
@@ -24,9 +26,31 @@ def main():
     screen = p.display.set_mode((WIDTH,HEIGHT))
     clock = p.time.Clock()
     screen.fill(p.Color("white"))
-    loadImages()
+    #loadImages()
     gs = chess.gameState()
     print(gs.board)
+    running = True
+    while running:
+        for e in p.event.get():
+            if e == p.QUIT:
+                running = false
+            drawGameState(screen, gs)
+            clock.tick(MAX_FPS)
+            p.display.flip()
+            
+def drawBoard(screen):
+    colors = [p.color("white"),p.color("gray")]
+    for i in DIMENSION:
+        for t in DIMENSION:
+            color = colors[((i+t)%2)]
+            p.draw.rect(screen, color,p.Rect(t*SQUARE_SIZE, i*SQUARE_SIZE,SQUARE_SIZE,SQUARE_SIZE))
+            
+def drawPieces():
+    pass
+def drawGameState(screen, gs):
+    drawBoard(screen)
+    drawPieces(screen, gs.board)
+    
 main()
 
         
