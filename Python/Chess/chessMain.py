@@ -7,7 +7,7 @@ import chess
 
 
 WIDTH = HEIGHT = 512
-DIMENSION = 8 #chess board is 8x8
+DIMENSION = 8  #chess board is 8x8
 SQUARE_SIZE = WIDTH/DIMENSION
 MAX_FPS = 15 #if I want to add animations later
 IMAGES ={}
@@ -33,19 +33,19 @@ def main():
     while running:
         for e in p.event.get():
             if e == p.QUIT:
-                running = false
+                running = False
             drawGameState(screen, gs)
             clock.tick(MAX_FPS)
             p.display.flip()
             
 def drawBoard(screen):
-    colors = [p.color("white"),p.color("gray")]
-    for i in DIMENSION:
-        for t in DIMENSION:
+    colors = [p.Color("white"),p.Color("gray")]
+    for i in range(DIMENSION):
+        for t in range(DIMENSION):
             color = colors[((i+t)%2)]
             p.draw.rect(screen, color,p.Rect(t*SQUARE_SIZE, i*SQUARE_SIZE,SQUARE_SIZE,SQUARE_SIZE))
             
-def drawPieces():
+def drawPieces(screen, board):
     pass
 def drawGameState(screen, gs):
     drawBoard(screen)
