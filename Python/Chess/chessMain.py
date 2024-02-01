@@ -12,7 +12,9 @@ SQUARE_SIZE = WIDTH/DIMENSION
 MAX_FPS = 15 #if I want to add animations later
 IMAGES ={}
 
-
+def initializePygame():
+    p.font.init()
+    
 def loadImages():
     pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
     
@@ -22,7 +24,8 @@ def loadImages():
 #to adjust the image size to the square size i used p.transform()
 
 def main():
-    p.init()
+    initializePygame()
+
     screen = p.display.set_mode((WIDTH,HEIGHT))
     clock = p.time.Clock()
     screen.fill(p.Color("white"))
