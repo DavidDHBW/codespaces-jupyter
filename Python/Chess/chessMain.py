@@ -3,7 +3,7 @@ import pygame as p
 import chess
 import os
 
-os.environ['SDL_AUDIODRIVER'] = 'dsp' #fix for the alsa lib error
+os.environ['SDL_AUDIODRIVER'] = 'directx' #fix for the alsa lib error
 
 
 
@@ -14,9 +14,7 @@ SQUARE_SIZE = WIDTH/DIMENSION
 MAX_FPS = 15 #if I want to add animations later
 IMAGES ={}
 
-def initializePygame():
-    p.init()
-    
+
     
     
 def loadImages():
@@ -28,7 +26,7 @@ def loadImages():
 #to adjust the image size to the square size i used p.transform()
 
 def main():
-    initializePygame()
+    p.init()
 
     screen = p.display.set_mode((WIDTH,HEIGHT))
     clock = p.time.Clock()
@@ -44,6 +42,7 @@ def main():
         drawGameState(screen, gs)
         clock.tick(MAX_FPS)
         p.display.flip()
+    p.quit()
             
 def drawBoard(screen):
     colors = [p.Color("white"), p.Color("gray")]
@@ -58,7 +57,8 @@ def drawGameState(screen, gs):
     drawBoard(screen)
     drawPieces(screen, gs.board)
     
-main()
+if __name__ == "__main__":
+    main()
 
         
 
