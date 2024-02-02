@@ -1,7 +1,9 @@
 #inputs output file
 import pygame as p
 import chess
+import os
 
+os.environ['SDL_AUDIODRIVER'] = 'dsp' #fix for the alsa lib error
 
 
 
@@ -13,7 +15,9 @@ MAX_FPS = 15 #if I want to add animations later
 IMAGES ={}
 
 def initializePygame():
-    p.font.init()
+    p.init()
+    
+    
     
 def loadImages():
     pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
@@ -37,9 +41,9 @@ def main():
         for e in p.event.get():
             if e == p.QUIT:
                 running = False
-            drawGameState(screen, gs)
-            clock.tick(MAX_FPS)
-            p.display.flip()
+        drawGameState(screen, gs)
+        clock.tick(MAX_FPS)
+        p.display.flip()
             
 def drawBoard(screen):
     colors = [p.Color("white"), p.Color("gray")]
