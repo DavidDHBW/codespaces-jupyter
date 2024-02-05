@@ -1,4 +1,4 @@
-
+import os
 import pygame as p
 
 class DrawGameState():
@@ -7,7 +7,6 @@ class DrawGameState():
         self.square_size = square_size
         self.dimension = dimension
         self.images = {}
-
 
     def drawBoard(self):
         colors = [p.Color("white"), p.Color("gray")]
@@ -19,6 +18,11 @@ class DrawGameState():
     def loadImages(self):
         pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
         for piece in pieces:
-            self.images[piece] = p.transform(p.image.load("images/"+piece+".png"), [self.square_size,self.square_size])
+            image = str(piece) + ".png"
+            self.images[piece] = p.transform(p.image.load(os.path.join('images', image)), [self.square_size,self.square_size])
+
+    def drawImages(self):
+        pass
+            
 
 

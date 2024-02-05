@@ -28,7 +28,7 @@ while running:
             running = False
 
     drawgame.drawBoard()
-
+    drawgame.loadImages()
     clock.tick(MAX_FPS)
     p.display.flip()
 p.quit()
