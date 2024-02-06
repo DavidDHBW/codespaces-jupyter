@@ -19,8 +19,12 @@ class DrawGameState():
         pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
         for piece in pieces:
             image = str(piece) + ".png"
-            self.images[piece] = p.transform(p.image.load(os.path.join('images', image)), [self.square_size ,self.square_size])
+            self.images[piece] = p.transform.scale(p.image.load('C:\\Users\\David\\Documents\\GitHub\\codespaces-jupyter\\Python\\Chess\\images\\' + image), (self.square_size, self.square_size))
 
-    def drawImages(self):
-        pass
+    def drawImages(self, board):
+        for i in range(self.dimension):
+            for t in range(self.dimension):
+                piece = board[i][t]
+                if piece != "--":
+                    self.screen.blit(self.images[piece], p.Rect(t* self.square_size, i*self.square_size,self.square_size,self.square_size))
             

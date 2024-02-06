@@ -15,20 +15,47 @@ screen = p.display.set_mode((WIDTH,HEIGHT))
 drawgame = DrawGameState(screen,SQUARE_SIZE,DIMENSION)
 clock = p.time.Clock()
 
-p.init()
+sqSelected = () #last click of the user
+playerClicks = []#player clicks
 
-#loadImages()
+p.init()
+drawgame.loadImages()
 gs = chess.gameState()
-print(gs.board)
+
+
+    
+
+
 
 running = True
 while running:
     for e in p.event.get():
         if e.type == p.QUIT:
             running = False
+        elif e.type == p.MOUSEBUTTONDOWN:
+            mousePos = p.mouse.get_pos()
+            col = mousePos[0]//SQUARE_SIZE
+            row = mousePos[1]//SQUARE_SIZE
+            if sqSelected == (row, col):
+                sqSelected = ()
+                playerClicks = []
+            else:
+                sqSelected = (row, col)
+                playerClicks.append(sqSelected)
+            if len(playerClicks) == 2:
+                move = chess.Move(playerClicks[0], playerClicks[1], gs.board)
+                print(move.getChessNotation())
+                gs.makeMove(move)
+                sqSelected = ()
+                playerClicks = []
+            
+
+            
 
     drawgame.drawBoard()
-    #drawgame.loadImages()
+    drawgame.drawImages(gs.board)
+    
     clock.tick(MAX_FPS)
     p.display.flip()
 p.quit()
+
