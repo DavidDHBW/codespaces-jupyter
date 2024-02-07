@@ -15,12 +15,12 @@ class gameState():
                         ["wp","wp","wp","wp","wp","wp","wp","wp"],
                         ["wR","wN","wB","wQ","wK","wB","wN","wR"]
                         ]
-                
+                self.movelog =[]
                 self.whiteToMove = True
         def makeMove(self, move):
                 self.board[move.startRow][move.startCol] = "--"
                 self.board[move.endRow][move.endCol] = move.pieceMoved
-                #self.movelog.append(move)
+                self.movelog.append(move.getChessNotation())
                 self.whiteToMove = not self.whiteToMove
 
 

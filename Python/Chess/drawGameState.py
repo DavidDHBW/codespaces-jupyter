@@ -19,8 +19,8 @@ class DrawGameState():
         pieces = ['wp', 'wR', 'wN', 'wB', 'wQ', 'wK', 'bp', 'bR', 'bN', 'bB', 'bQ', 'bK']
         for piece in pieces:
             image = str(piece) + ".png"
-            self.images[piece] = p.transform.scale(p.image.load('C:\\Users\\David\\Documents\\GitHub\\codespaces-jupyter\\Python\\Chess\\images\\' + image), (self.square_size, self.square_size))
-
+            self.images[piece] = p.transform.scale(p.image.load('C:\\Users\\David\\Documents\\Coding\\codespaces-jupyter\\Python\\Chess\\images\\' + image), (self.square_size, self.square_size))
+#C:\\Users\\David\\Documents\\Coding\\codespaces-jupyter\\Python\\Chess\\images\\
     def drawImages(self, board):
         for i in range(self.dimension):
             for t in range(self.dimension):

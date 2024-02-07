@@ -44,8 +44,8 @@ while running:
                 playerClicks.append(sqSelected)
             if len(playerClicks) == 2:
                 move = chess.Move(playerClicks[0], playerClicks[1], gs.board)
-                print(move.getChessNotation())
                 gs.makeMove(move)
+                print(gs.movelog)
                 sqSelected = ()
                 playerClicks = []
             
