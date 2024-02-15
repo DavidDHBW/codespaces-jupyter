@@ -32,7 +32,9 @@ class DamageCalculation:
 
         if target.warriorType == "meleeFighter":
             return 0
-        
+        print(enemies)
+        isMeleeFighter = False
+        isRangedFighter = False 
         for enemy in enemies:
             if enemy.warriorType == "meleeFighter":
                 isMeleeFighter = True
@@ -40,18 +42,15 @@ class DamageCalculation:
                 isRangedFighter = True 
         
         if target.warriorType == "rangedFighter":
-            if isMeleeFighter: return 0.4
+            if isMeleeFighter: return 0.5
             else: return 0
         
         if target.warriorType == "wizzard":
-            if not isMeleeFighter and not isRangedFighter:
-                return 0
-            else:
-                if isMeleeFighter:
-                    return 0.7
-                if isRangedFighter:
-                    return 0.5
-        else: return 0
+            if isMeleeFighter:
+                return 0.9
+            if isRangedFighter:
+                return 0.7
+        return 0
         
         #wizzard , rangedFighter, meleeFighter
     def weaponAdv(self, character, target):
@@ -68,6 +67,7 @@ class DamageCalculation:
                             return -0.2
                         if target.weapon.weaponType == weapons[i.raiseInt()]:
                             return 0.2
+        return 0
         #character is rangedFighter || no impact
         #character is wizzard || no impact
     def weaponDeffenseDiff(self,target):

@@ -34,12 +34,9 @@ while running:
 
         #DRAW THE GAME
         #screen.blit(background,(0,0))   |||replace background with png
-     
-        scaled_surface = p.transform.scale(screen, (windowWidth, windowHeight))
-
-        window.blit(scaled_surface,(0,0))
-        
-        p.display.flip()
+    scaled_surface = p.transform.scale(screen, (windowWidth, windowHeight))
+    window.blit(scaled_surface,(0,0))
+    p.display.flip()
 
 
     dt = clock.tick(maxFps)/1000  

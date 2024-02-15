@@ -1,5 +1,5 @@
-selectedPlayerCharacters = [3]
-selectedEnemyCharacters = [3]
+selectedPlayerCharacters = []
+selectedEnemyCharacters = []
 
 PlayerCharacters = []
 Enemycharacters = []
