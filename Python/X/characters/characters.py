@@ -49,6 +49,6 @@ e2=Character("char", 50,False,4,"rangedFighter", "bow",True,10)
 e3=Character("char", 50,False,4,"meleeFighter", "spear",True,1)
 selectedEnemyCharacters.append(e2)
 selectedEnemyCharacters.append(e3)
-char = Character("char", 50,False,4,"meleeFighter", "axe",True,10)
+char = Character("char", 50,False,4,"meleeFighter", "sword",True,10)
 
 char.attack(e3)
