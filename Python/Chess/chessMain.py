@@ -19,6 +19,7 @@ sqSelected = () #last click of the user
 playerClicks = []#player clicks
 
 p.init()
+p.display.set_caption("Chess")
 drawgame.loadImages()
 gs = chess.gameState()
 
