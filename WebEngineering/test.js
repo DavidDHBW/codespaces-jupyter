@@ -5,6 +5,10 @@ function toggleText() {
     alert("TEST");
     if (document.getElementById("demo").innerHTML == text){
         document.getElementById("demo").innerHTML = text2;
+        document.getElementById("button").innerHTML = text1;
     }
-    else document.getElementById("demo").innerHTML = text;
+    else {
+        document.getElementById("demo").innerHTML = text;
+        document.getElementById("button").innerHTML = text2;
+    }
 }
