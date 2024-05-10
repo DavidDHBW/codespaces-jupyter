@@ -1,0 +1,5 @@
+selectedPlayerCharacters = []
+selectedEnemyCharacters = []
+
+PlayerCharacters = []
+Enemycharacters = []
