@@ -1,4 +1,4 @@
-package Java;
+package Java.TheoretischeInformatik;
 
 public class Person {
    // Anfang Attribute

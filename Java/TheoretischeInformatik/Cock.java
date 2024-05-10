@@ -1,4 +1,4 @@
-package Java;
+package Java.TheoretischeInformatik;
 public class Cock extends Animal{ 
   
     public Cock(String name){ 

@@ -1,4 +1,4 @@
-package Java;
+package Java.TheoretischeInformatik;
 public class Animal { 
     // Anfang Attribute
     private String name; 
