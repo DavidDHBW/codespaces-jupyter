@@ -33,6 +33,7 @@ public class Bottle {
         this.serialNumber = (long) ((random * upperRange)+lowerRange); //creates random 10-digit number
         if(identity.checkIdentity(this.serialNumber)) identity.addSerialNumber(serialNumber); //checks if serial Number is unique
         else createSerialNumber();
+        System.out.println(this.serialNumber);
     }
     public String getContent(){
         return this.content;
