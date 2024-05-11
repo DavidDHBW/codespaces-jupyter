@@ -5,7 +5,7 @@ class Machine{
     protected Track track;
     protected StorageArea storageArea;
     protected Tank tank;
-    protected
+
 
     public Machine(){
         this.isOn = true;
@@ -24,7 +24,7 @@ class Machine{
         this.isOn = false;
     }
 }
-class FillingMachine extends Machine{
+class FillingMachine extends Machine{           //todo testing the class
     private Bottle processBottle;
     private int wantedContent = 500;         //in ml for Bottle content
 
