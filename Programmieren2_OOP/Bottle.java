@@ -8,7 +8,7 @@ public class Bottle {
     private String content;                 //allowed char: g; illustrates content of the bottle in ml; 1 g = 1ml
     private Mouthpiece mouthpiece;
     private double height, diameter;        //in mm
-    private double marginalCapacity;        //in ml
+    private int marginalCapacity;        //in ml (int -> represents amount of maximal characters)
     private double weight;                  //in gr
     private boolean isFilled;
     private long serialNumber;              //random 10 digit number
@@ -35,11 +35,27 @@ public class Bottle {
         else createSerialNumber();
         System.out.println(this.serialNumber);
     }
-    public String getContent(){
-        return this.content;
-    }
     public void addContent(char newContent){
         this.content += newContent;
     }
+    public String getContent(){
+        return this.content;
+    }
+    public int getMariginalCapacity(){
+        return this.marginalCapacity;
+    }
+    public double getWeight(){
+        return this.getWeight();
+    }
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
+    public boolean getIsFilled(){
+        return this.isFilled;
+    }
+    public void setIsFilled(boolean isFilled){
+        this.isFilled = isFilled;
+    }
+
 
 }
